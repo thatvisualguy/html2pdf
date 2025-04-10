@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"><title>Dynamic Viewer</title></head>
+  <body>
+    <script>
+      const query = new URLSearchParams(window.location.search);
+      const rawHTML = query.get("html");
+      if (rawHTML) {
+        const decoded = decodeURIComponent(rawHTML);
+        document.write(decoded); // or insert into a div using innerHTML
+      } else {
+        document.body.innerHTML = "<p>No HTML provided.</p>";
+      }
+    </script>
+  </body>
+</html>
