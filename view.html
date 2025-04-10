@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head><meta charset="UTF-8"><title>Dynamic Viewer</title></head>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dynamic HTML Viewer</title>
+  </head>
   <body>
+    <div id="content"></div>
+
     <script>
-      const query = new URLSearchParams(window.location.search);
-      const rawHTML = query.get("html");
+      const params = new URLSearchParams(window.location.search);
+      const rawHTML = params.get("html");
+
       if (rawHTML) {
-        const decoded = decodeURIComponent(rawHTML);
-        document.write(decoded); // or insert into a div using innerHTML
+        const decodedHTML = decodeURIComponent(rawHTML);
+        document.getElementById("content").innerHTML = decodedHTML;
       } else {
-        document.body.innerHTML = "<p>No HTML provided.</p>";
+        document.getElementById("content").innerHTML = "<p>No HTML provided.</p>";
       }
     </script>
   </body>
